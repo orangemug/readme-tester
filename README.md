@@ -26,13 +26,11 @@ So say you have a README markdown file like so
     To use it
 
     ```js
-        var fail = require("fail");
-        var out = fail(2)
-        assert(out, 5);
+    var fail = require("fail");
+    var out = fail(2)
+    assert(out, 5);
     ```
 
-    ## License
-    MIT
 
 To test your `README.md` just the following and all the code in _js_ code tags will be executed, including assertions which will fail the tests.
 
