@@ -33,11 +33,11 @@ So say you have a README markdown file like so
 To test your `README.md` just run
 
 ```js
-    var readmeTester = require("readme-tester");
+var readmeTester = require("readme-tester");
 
-    readmeTester(__dirname+"/test/examples/fail", function(err, assertions) {
-      assert(err);
-    });
+readmeTester(__dirname+"/test/examples/fail", function(err, assertions) {
+  assert(err);
+});
 ```
 
 
