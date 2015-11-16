@@ -16,7 +16,7 @@ module.exports = function(dirname, done) {
 
   var tokens = marked.lexer(md, {gfm: true});
 
-  var re = new RegExp("require\\([\"']"+pkg.name+"(\/?[^\"']*)[\"']\\)");
+  var re = new RegExp("require\\([\"']"+pkg.name+"(\/?[^\"']*)[\"']\\)", "g");
 
   var code = tokens
     .map(function(token) {
