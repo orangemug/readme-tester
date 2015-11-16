@@ -54,23 +54,18 @@ module.exports = function(dirname, done) {
         if(err) {
           // Try to print a better stack trace.
           var m, lineErr;
-          err.stack.split("\n").forEach(function(line) {
-            var re = new RegExp(inputPath+":(\\d+)(?::(\\d+))?");
-            if(m = line.match(re)) {
-              lineErr = {
-                lineNo: m[1],
-                charNo: m[2]
-              };
-            }
-          });
+          var stackRe = new RegExp(inputPath+":(\\d+)(?::(\\d+))?");
+          var lineErr = err.stack.match(stackRe);
 
           if(lineErr) {
+            // Stack error
             done(
               new Error(
-                debugErr(codeOrig, lineErr.lineNo, lineErr.charNo)
+                debugErr(codeOrig, lineErr[1], lineErr[2])
               )
             );
           } else {
+            // Can't find in stack trace error as normal
             done(err);
           }
         } else {
