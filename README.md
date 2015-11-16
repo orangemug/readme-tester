@@ -34,7 +34,7 @@ So say you have a README markdown file like so
     ## License
     MIT
 
-To test your `README.md` just run
+To test your `README.md` just the following and all the code in `\`\`\`js` will be executed, including assertions which will fail the tests.
 
 ```js
 var readmeTester = require("readme-tester");
