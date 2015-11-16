@@ -1,9 +1,9 @@
 # readme-tester
 A library to test READMEs (or any markdown files actually)
 
-[![circleci](https://circleci.com/gh/orangemug/nonodeify.png?style=shield)](https://circleci.com/gh/orangemug/nonodeify)
-[![Dependency Status](https://david-dm.org/orangemug/nonodeify.svg)](https://david-dm.org/orangemug/nonodeify)
-[![Dev Dependency Status](https://david-dm.org/orangemug/nonodeify/dev-status.svg)](https://david-dm.org/orangemug/nonodeify#info=devDependencies)
+[![circleci](https://circleci.com/gh/orangemug/readme-tester.png?style=shield)](https://circleci.com/gh/orangemug/readme-tester)
+[![Dependency Status](https://david-dm.org/orangemug/readme-tester.svg)](https://david-dm.org/orangemug/readme-tester)
+[![Dev Dependency Status](https://david-dm.org/orangemug/readme-tester/dev-status.svg)](https://david-dm.org/orangemug/readme-tester#info=devDependencies)
 
 
 ## Install
