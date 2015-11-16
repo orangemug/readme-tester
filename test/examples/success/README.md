@@ -8,9 +8,9 @@ Testing, testing, 1, 2, 3
 To use it
 
 ```js
-    var success = require("success");
-    var out = success(2);
-    assert.equal(out, 4);
+var success = require("success");
+var out = success(2);
+assert.equal(out, 4);
 ```
 
 ## License
