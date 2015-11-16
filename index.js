@@ -4,6 +4,8 @@ var fs     = require("fs");
 var marked = require("marked");
 var path   = require("path");
 
+var debugErr = require("./lib/debug-err");
+
 
 var tempFiles = {};
 
@@ -18,7 +20,7 @@ module.exports = function(dirname, done) {
 
   var re = new RegExp("require\\([\"']"+pkg.name+"(\/?[^\"']*)[\"']\\)", "g");
 
-  var code = tokens
+  var codeOrig = tokens
     .map(function(token) {
       if(token.type === "code" && token.lang === "js") {
         return token.text;
@@ -26,13 +28,16 @@ module.exports = function(dirname, done) {
         return "";
       }
     })
-    .join("")
+    .join("");
+
+  codeOrig = "var assert = require('assert');\n"+codeOrig;
+
+  var code = codeOrig
     .replace(re, function() {
       return "require(\""+dirname+"/"+RegExp.$1+"\")";
     });
 
   // Added assertion globally
-  code = "var assert = require('assert');\n"+code;
 
   var current_date = (new Date()).valueOf().toString();
   var random = Math.random().toString();
@@ -46,7 +51,31 @@ module.exports = function(dirname, done) {
 
     exec('node '+inputPath, function(err, stdout, stderr) {
       fs.unlink(inputPath, function() {
-        done(err);
+        if(err) {
+          // Try to print a better stack trace.
+          var m, lineErr;
+          err.stack.split("\n").forEach(function(line) {
+            var re = new RegExp(inputPath+":(\\d+)(?::(\\d+))?");
+            if(m = line.match(re)) {
+              lineErr = {
+                lineNo: m[1],
+                charNo: m[2]
+              };
+            }
+          });
+
+          if(lineErr) {
+            done(
+              new Error(
+                debugErr(codeOrig, lineErr.lineNo, lineErr.charNo)
+              )
+            );
+          } else {
+            done(err);
+          }
+        } else {
+          done();
+        }
       });
     });
   });
