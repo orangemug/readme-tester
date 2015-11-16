@@ -1,6 +1,7 @@
 # readme-tester
 A library to test READMEs (or any markdown files actually)
 
+![stability-experimental](https://img.shields.io/badge/stability-experimental-orange.svg)
 [![circleci](https://circleci.com/gh/orangemug/readme-tester.png?style=shield)](https://circleci.com/gh/orangemug/readme-tester)
 [![Dependency Status](https://david-dm.org/orangemug/readme-tester.svg)](https://david-dm.org/orangemug/readme-tester)
 [![Dev Dependency Status](https://david-dm.org/orangemug/readme-tester/dev-status.svg)](https://david-dm.org/orangemug/readme-tester#info=devDependencies)
