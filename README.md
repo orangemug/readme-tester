@@ -43,7 +43,7 @@ readmeTester(__dirname+"/test/examples/fail", function(err, assertions) {
 });
 ```
 
-Actually this markdown document [/test/index.js](/test/index.js) is also tested by itself, which in turn runs `readme-tester` in the markdown above... how meta!
+Actually this markdown document [/test/index.js](/test/index.js) is also tested by itself, which in turn runs `readme-tester` in the markdown above... very meta!
 
 
 ## License
