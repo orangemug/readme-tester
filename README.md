@@ -1,6 +1,10 @@
 # readme-tester
 A library to test READMEs (or any markdown files actually)
 
+[![circleci](https://circleci.com/gh/orangemug/nonodeify.png?style=shield)](https://circleci.com/gh/orangemug/nonodeify)
+[![Dependency Status](https://david-dm.org/orangemug/nonodeify.svg)](https://david-dm.org/orangemug/nonodeify)
+[![Dev Dependency Status](https://david-dm.org/orangemug/nonodeify/dev-status.svg)](https://david-dm.org/orangemug/nonodeify#info=devDependencies)
+
 
 ## Install
 To install
@@ -42,4 +46,4 @@ readmeTester(__dirname+"/test/examples/fail", function(err, assertions) {
 
 
 ## License
-MIT
+[MIT](LICENSE)
