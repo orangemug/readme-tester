@@ -63,7 +63,9 @@ module.exports = function(dirname, done) {
           var stackRe = new RegExp(inputPath+":(\\d+)(?::(\\d+))?");
           var lineErr = err.stack.match(stackRe);
 
-          var data = JSON.parse(stderr);
+          var data = JSON.parse(
+            stderr.replace(/===readme-tester:start===([\s\S]*)===readme-tester:end===/m, "$1")
+          );
 
           if(lineErr) {
             message = debugErr(codeOrig, lineErr[1], lineErr[2], data.message)
