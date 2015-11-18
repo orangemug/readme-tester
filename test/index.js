@@ -4,7 +4,7 @@ var readtest = require("../");
 describe("readtest", function() {
   it("success", function(done) {
     readtest(__dirname+"/examples/success", function(err) {
-      assert(!err);
+      assert.ifError(err);
       done();
     });
   });
@@ -18,7 +18,7 @@ describe("readtest", function() {
 
   it("main readme", function(done) {
     readtest(__dirname+"/../", function(err) {
-      assert(!err);
+      assert.ifError(err);
       done();
     });
   });

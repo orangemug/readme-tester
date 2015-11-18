@@ -3,8 +3,13 @@ var exec   = require('child_process').exec;
 var fs     = require("fs");
 var marked = require("marked");
 var path   = require("path");
+var assert = require("assert");
+var assign = require("lodash.assign");
 
 var debugErr = require("./lib/debug-err");
+var genErr   = require("./lib/gen-err");
+
+var headJs = fs.readFileSync(__dirname+"/lib/head.js").toString()
 
 
 var tempFiles = {};
@@ -30,7 +35,8 @@ module.exports = function(dirname, done) {
     })
     .join("");
 
-  codeOrig = "var assert = require('assert');\n"+codeOrig;
+
+  codeOrig = headJs+codeOrig;
 
   var code = codeOrig
     .replace(re, function() {
@@ -53,21 +59,24 @@ module.exports = function(dirname, done) {
       fs.unlink(inputPath, function() {
         if(err) {
           // Try to print a better stack trace.
-          var m, lineErr;
+          var m, lineErr, message;
           var stackRe = new RegExp(inputPath+":(\\d+)(?::(\\d+))?");
           var lineErr = err.stack.match(stackRe);
 
+          var data = JSON.parse(stderr);
+
           if(lineErr) {
-            // Stack error
-            done(
-              new Error(
-                debugErr(codeOrig, lineErr[1], lineErr[2])
-              )
-            );
+            message = debugErr(codeOrig, lineErr[1], lineErr[2], data.message)
           } else {
-            // Can't find in stack trace error as normal
-            done(err);
+            message = data.message;
           }
+
+          var errData = assign(
+            data,
+            {message: message}
+          );
+
+          done(genErr(errData));
         } else {
           done();
         }
