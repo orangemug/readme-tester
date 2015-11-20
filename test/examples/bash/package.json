@@ -1,6 +1,6 @@
 {
   "name": "simple",
-	"bin": {
-		"simple": "./bin/simple.sh"
-	}
+  "bin": {
+    "simple": "./bin/simple.sh"
+  }
 }

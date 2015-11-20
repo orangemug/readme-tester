@@ -20,6 +20,6 @@
     "lodash.assign": "^3.2.0",
     "marked": "^0.3.5",
     "yargs": "^3.30.0",
-		"bash-assert": "orangemug/bash-assert#v0.4.0"
+    "bash-assert": "orangemug/bash-assert#v0.4.0"
   }
 }
