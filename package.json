@@ -5,6 +5,9 @@
   "scripts": {
     "test": "mocha test/index.js"
   },
+  "bin": {
+    "readme-tester": "./bin/cli.js"
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/orangemug/readme-tester.git"
