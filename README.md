@@ -35,7 +35,9 @@ So say you have a README markdown file like so
 
 All the code in _js_ code tags will concatinated and executed. The following will be added to the top by default
 
-    var assert = require("assert");
+```js
+var assert = require("assert");
+```
 
 Any errors thrown in the markdown code will cause an error. To test your `README.md` just run the following
 
