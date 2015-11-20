@@ -5,8 +5,17 @@ var debug   = require("./lib/debug");
 var runners = require("./lib/runners");
 
 
-module.exports = function(dirname, done) {
+module.exports = function(dirname, opts, done) {
+  if(done === undefined) {
+    done = opts;
+  }
+  opts = opts || {};
   var code = {};
+
+  var availLangs = ["js"]
+  if(opts.bash) {
+    availLangs.push("bash");
+  }
 
   var md = fs.readFile(dirname+"/README.md", function(err, raw) {
     if(err) return done(err);
@@ -17,7 +26,7 @@ module.exports = function(dirname, done) {
     tokens
       .forEach(function(token) {
         var lang = token.lang;
-        if(lang && token.type === "code") {
+        if(lang && availLangs.indexOf(lang) > -1 && token.type === "code") {
           code[lang] = code[lang] || "";
           code[lang] = code[lang] + token.text;
           return "";

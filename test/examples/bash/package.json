@@ -1,0 +1,6 @@
+{
+  "name": "simple",
+  "bin": {
+    "simple": "./bin/simple.sh"
+  }
+}
