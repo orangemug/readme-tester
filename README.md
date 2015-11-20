@@ -50,5 +50,31 @@ readmeTester(__dirname+"/test/examples/fail", function(err, assertions) {
 Actually this markdown document [/test/index.js](/test/index.js) is also tested by itself, which in turn runs `readme-tester` in the markdown above... very meta!
 
 
+### CLI
+There is also a CLI
+
+```bash
+readme-tester --help 2> /tmp/stderr.txt
+## >>/tmp/stderr.txt
+## Test a README.
+## 
+## Usage: bin/cli.js <path>
+## 
+## Options:
+##   -h, --help  Show help                                                [boolean]
+## <<
+```
+
+Example usage
+
+```bash
+readme-tester ./test/examples/success
+## :exit => 1
+
+readme-tester ./test/examples/fail
+## :exit => 0
+```
+
+
 ## License
 [MIT](LICENSE)

@@ -16,6 +16,13 @@ describe("readtest", function() {
     });
   });
 
+  it("bash (experimental)", function(done) {
+    readtest(__dirname+"/examples/bash", {bash: true}, function(err) {
+      assert.ifError(err);
+      done();
+    });
+  });
+
   it("main readme", function(done) {
     readtest(__dirname+"/../", function(err) {
       assert.ifError(err);
