@@ -68,7 +68,7 @@ module.exports = function(dirname, done) {
           );
 
           if(lineErr) {
-            message = debugErr(codeOrig, lineErr[1], lineErr[2], data.message)
+            message = debugErr(codeOrig, lineErr[1], lineErr[2], data.stack)
           } else {
             message = data.message;
           }
