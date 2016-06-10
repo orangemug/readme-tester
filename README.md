@@ -56,27 +56,21 @@ Actually this markdown document [/test/index.js](/test/index.js) is also tested 
 There is also a CLI
 
 ```bash
-readme-tester --help 2> /tmp/stderr.txt
-## >>/tmp/stderr.txt
-## Test a README.
-## 
-## Usage: bin/cli.js <path>
-## 
-## Options:
-##   -h, --help  Show help                                                [boolean]
-## <<
+$ readme-tester --help
+Test a README.
+
+Usage: bin/cli.js <path>
+
+Options:
+  -h, --help  Show help                                                [boolean]
 ```
 
 Example usage
 
 ```bash
-readme-tester ./test/examples/success
+$ readme-tester ./test/examples/success
 ## :exit => 1
-
-readme-tester ./test/examples/fail
-## :exit => 0
 ```
-
 
 ## License
 [MIT](LICENSE)
