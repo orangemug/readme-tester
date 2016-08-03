@@ -28,18 +28,33 @@ module.exports = function(dirname, opts, done) {
         var lang = token.lang;
         if(lang && availLangs.indexOf(lang) > -1 && token.type === "code") {
           code[lang] = code[lang] || "";
-          code[lang] = code[lang] + token.text;
+          code[lang] = code[lang] + token.text + "\n";
           return "";
         }
       });
 
-    for(var lang in code) {
-      var runner = runners[lang];
-      if(runner) {
-        runner(dirname, code[lang], done);
-      } else {
-        debug("no runner for lang: %s", lang);
+    var toRun = [];
+    var toRun = Object.keys(code)
+      .map(function(lang) {
+        var runner = runners[lang];
+        if(!runner) {
+          debug("no runner for lang: %s", lang);
+        }
+        return function(done) {
+          runner(dirname, code[lang], done);
+        };
+      });
+
+    toRun.shift()(function fn(err) {
+      if(err) {
+        done(err);
       }
-    }
+      else if(toRun.length > 0) {
+        toRun.shift()(fn)
+      }
+      else {
+        done();
+      }
+    });
   })
 }
