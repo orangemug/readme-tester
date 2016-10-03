@@ -9,8 +9,9 @@ To use it
 
 ```js
 var success = require("success");
-var out = success(2);
-assert.equal(out, 4);
+var successInner = require("success/inner");
+assert.equal(success(2), 4);
+assert.equal(successInner(), "inner");
 ```
 
 ## License
