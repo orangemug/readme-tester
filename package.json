@@ -1,7 +1,7 @@
 {
   "name": "readme-tester",
   "description": "A library to test READMEs",
-  "version": "0.3.2",
+  "version": "0.4.0",
   "scripts": {
     "test": "mocha test/index.js"
   },
