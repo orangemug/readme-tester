@@ -13,13 +13,13 @@
     "url": "git://github.com/orangemug/readme-tester.git"
   },
   "devDependencies": {
-    "mocha": "^2.2.4"
+    "mocha": "^3.1.2"
   },
   "dependencies": {
+    "bash-assert": "orangemug/bash-assert#v0.6.0",
     "debug": "^2.2.0",
-    "lodash.assign": "^3.2.0",
+    "lodash.assign": "^4.2.0",
     "marked": "^0.3.5",
-    "yargs": "^3.30.0",
-    "bash-assert": "orangemug/bash-assert#v0.4.0"
+    "yargs": "^6.3.0"
   }
 }
