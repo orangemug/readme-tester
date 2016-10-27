@@ -1,11 +1,19 @@
 var fs     = require("fs");
 var marked = require("marked");
+var path   = require("path");
 
 var debug   = require("./lib/debug");
 var runners = require("./lib/runners");
 
-
-module.exports = function(dirname, opts, done) {
+/**
+ * Readme tester runner
+ * @param  {String} filepath        path to the markdown file to be tested
+ * @param  {Object} opts            run options
+ * @property {Boolean} opts.bash    whether to include bash parsing
+ * @param  {Function} done          callback when test is complete. Node callback signature
+ * @return {Void}                   no return value
+ */
+module.exports = function(filepath, opts, done) {
   if(done === undefined) {
     done = opts;
   }
@@ -17,7 +25,9 @@ module.exports = function(dirname, opts, done) {
     availLangs.push("bash");
   }
 
-  var md = fs.readFile(dirname+"/README.md", function(err, raw) {
+  var dirname = path.dirname(filepath);
+
+  var md = fs.readFile(filepath, function(err, raw) {
     if(err) return done(err);
 
     var md = raw.toString();
