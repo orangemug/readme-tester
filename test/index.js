@@ -16,6 +16,13 @@ describe("readtest", function() {
     });
   });
 
+  it("should test a markdown file in a nested folder", function(done) {
+    readtest(__dirname+"/examples/nested_dirs/docs/documentation.md", function(err) {
+      assert.ifError(err);
+      done();
+    });
+  });
+
   it("fail", function(done) {
     readtest(__dirname+"/examples/fail/README.md", function(err) {
       assert(err);

@@ -5,7 +5,14 @@ var path   = require("path");
 var debug   = require("./lib/debug");
 var runners = require("./lib/runners");
 
-
+/**
+ * Readme tester runner
+ * @param  {String} filepath        path to the markdown file to be tested
+ * @param  {Object} opts            run options
+ * @property {Boolean} opts.bash    whether to include bash parsing
+ * @param  {Function} done          callback when test is complete. Node callback signature
+ * @return {Void}                   no return value
+ */
 module.exports = function(filepath, opts, done) {
   if(done === undefined) {
     done = opts;
