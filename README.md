@@ -59,10 +59,13 @@ There is also a CLI
 $ readme-tester --help
 Test a README.
 
-Usage: bin/cli.js <path>
+Usage: readme-tester <path to markdown file>
 
 Options:
   -h, --help  Show help                                                [boolean]
+
+Examples:
+  readme-tester ./path/to/README.md
 ```
 
 Example usage
