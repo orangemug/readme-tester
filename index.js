@@ -1,11 +1,12 @@
 var fs     = require("fs");
 var marked = require("marked");
+var path   = require("path");
 
 var debug   = require("./lib/debug");
 var runners = require("./lib/runners");
 
 
-module.exports = function(dirname, opts, done) {
+module.exports = function(filepath, opts, done) {
   if(done === undefined) {
     done = opts;
   }
@@ -17,7 +18,9 @@ module.exports = function(dirname, opts, done) {
     availLangs.push("bash");
   }
 
-  var md = fs.readFile(dirname+"/README.md", function(err, raw) {
+  var dirname = path.dirname(filepath);
+
+  var md = fs.readFile(filepath, function(err, raw) {
     if(err) return done(err);
 
     var md = raw.toString();

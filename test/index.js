@@ -3,35 +3,35 @@ var readtest = require("../");
 
 describe("readtest", function() {
   it("success", function(done) {
-    readtest(__dirname+"/examples/success", function(err) {
+    readtest(__dirname+"/examples/success/README.md", function(err) {
       assert.ifError(err);
       done();
     });
   });
 
   it("success-multiple", function(done) {
-    readtest(__dirname+"/examples/success-multiple", function(err) {
+    readtest(__dirname+"/examples/success-multiple/README.md", function(err) {
       assert.ifError(err);
       done();
     });
   });
 
   it("fail", function(done) {
-    readtest(__dirname+"/examples/fail", function(err) {
+    readtest(__dirname+"/examples/fail/README.md", function(err) {
       assert(err);
       done();
     });
   });
 
   it("bash (experimental)", function(done) {
-    readtest(__dirname+"/examples/bash", {bash: true}, function(err) {
+    readtest(__dirname+"/examples/bash/README.md", {bash: true}, function(err) {
       assert.ifError(err);
       done();
     });
   });
 
   it("main readme", function(done) {
-    readtest(__dirname+"/../", function(err) {
+    readtest(__dirname+"/../README.md", function(err) {
       assert.ifError(err);
       done();
     });

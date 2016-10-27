@@ -44,7 +44,7 @@ Any errors thrown in the markdown code will cause an error. To test your `README
 ```js
 var readmeTester = require("readme-tester");
 
-readmeTester(__dirname+"/test/examples/fail", function(err, assertions) {
+readmeTester(__dirname+"/test/examples/fail/README.md", function(err, assertions) {
   assert(err);
 });
 ```
