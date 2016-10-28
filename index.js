@@ -27,7 +27,7 @@ module.exports = function(filepath, opts, done) {
 
   var dirname = path.dirname(filepath);
 
-  var md = fs.readFile(filepath, function(err, raw) {
+  fs.readFile(filepath, function(err, raw) {
     if(err) return done(err);
 
     var md = raw.toString();
