@@ -72,13 +72,13 @@ describe("readme-tester", function() {
 
   describe("promise", function() {
     tests.forEach(function(test) {
-      it(test.desc, function(done) {
+      it(test.desc, function() {
         return readtest(test.filepath, test.opts)
           .then(function() {
-            test.assertion(err);
+            test.assertion();
           })
           .catch(function(err) {
-            test.assertion();
+            test.assertion(err);
           })
       });
     });
