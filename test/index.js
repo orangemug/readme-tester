@@ -69,4 +69,18 @@ describe("readme-tester", function() {
       });
     });
   });
+
+  describe("promise", function() {
+    tests.forEach(function(test) {
+      it(test.desc, function(done) {
+        return readtest(test.filepath, test.opts)
+          .then(function() {
+            test.assertion(err);
+          })
+          .catch(function(err) {
+            test.assertion();
+          })
+      });
+    });
+  });
 });
