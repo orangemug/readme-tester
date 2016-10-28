@@ -9,6 +9,13 @@ describe("readtest", function() {
     });
   });
 
+  it("success_inner", function(done) {
+    readtest(__dirname+"/examples/success_inner/README.md", function(err) {
+      assert.ifError(err);
+      done();
+    });
+  });
+
   it("success-multiple", function(done) {
     readtest(__dirname+"/examples/success-multiple/README.md", function(err) {
       assert.ifError(err);
