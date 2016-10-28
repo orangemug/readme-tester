@@ -25,6 +25,13 @@ describe("readme-tester", function() {
       }
     },
     {
+      desc: "success-promise",
+      filepath: __dirname+"/examples/success-promise/README.md",
+      assertion: function(err) {
+        assert.ifError(err);
+      }
+    },
+    {
       desc: "should test a markdown file in a nested folder",
       filepath: __dirname+"/examples/nested_dirs/docs/documentation.md",
       assertion: function(err) {
@@ -34,6 +41,13 @@ describe("readme-tester", function() {
     {
       desc: "fail",
       filepath: __dirname+"/examples/fail/README.md",
+      assertion: function(err) {
+        assert(err);
+      }
+    },
+    {
+      desc: "fail-promise",
+      filepath: __dirname+"/examples/fail-promise/README.md",
       assertion: function(err) {
         assert(err);
       }

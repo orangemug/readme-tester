@@ -30,6 +30,8 @@ module.exports = function(filepath, opts, done) {
   return new Promise(function(resolve, reject) {
     var _done = function(err) {
       if(err) {
+        // HACK: Because of issue with supporting both promise and callback
+        err._fromReadmeTester = true;
         reject(err);
       }
       else {
