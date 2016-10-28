@@ -11,7 +11,7 @@ var runners = require("./lib/runners");
  * @param  {Object} opts            run options
  * @property {Boolean} opts.bash    whether to include bash parsing
  * @param  {Function} done          callback when test is complete. Node callback signature
- * @return {Void}                   no return value
+ * @return {Promise}
  */
 module.exports = function(filepath, opts, done) {
   if(done === undefined && typeof(opts) === "function") {
