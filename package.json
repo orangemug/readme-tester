@@ -17,10 +17,10 @@
   },
   "dependencies": {
     "bash-assert": "orangemug/bash-assert#v0.6.0",
-    "debug": "^2.2.0",
+    "debug": "^3.1.0",
     "lodash.assign": "^4.2.0",
-    "marked": "^0.3.6",
-    "read-pkg-up": "^2.0.0",
-    "yargs": "^6.3.0"
+    "marked": "^0.3.7",
+    "read-pkg-up": "^3.0.0",
+    "yargs": "^10.0.3"
   }
 }
