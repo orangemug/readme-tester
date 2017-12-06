@@ -21,6 +21,8 @@
     "lodash.assign": "^4.2.0",
     "marked": "^0.3.7",
     "read-pkg-up": "^3.0.0",
+    "resolve-pkg": "^1.0.0",
+    "shell-escape": "^0.2.0",
     "yargs": "^10.0.3"
   }
 }
